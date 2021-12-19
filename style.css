@@ -1,0 +1,63 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #e4b9b9, #287fe281);/*1st color from left, 2nd color on right*/
+    
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    
+  }
+
+.calculator-grid > button /*targets all btns inside grid*/{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+    
+}
+
+.calculator-grid > button:hover {
+    background-color: rgba(255, 255, 255, .9);
+
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 / -1; /*makes output span whole width from col 1 to last col*/
+    background-color: rgba(0,0,0,.75);
+    display: flex;
+    align-items: flex-end;/*so text input starts on right*/
+    justify-content: space-around; /*increases space around prev/curr operand, pushing them closer tgt*/
+    flex-direction: column; /*prev/curr operand stack vertical not horizontal*/
+    padding: 10px;
+    word-wrap: break-word;/*when too many digits, line continues below*/
+    word-break: break-all;/*break all words in output if needed*/
+}
+
+.output .previous-operand {
+    color: rgba(255,255,255,.75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
